@@ -55,7 +55,9 @@
     "passport-local": "^1.0.0",
     "passport-twitter": "^1.0.4",
     "rxjs": "^5.5.6",
-    "zone.js": "^0.8.19"
+    "zone.js": "^0.8.19",
+    "ejs": "^2.5.7",
+    "passport-local-mongoose": "^4.5.0"
   },
   "devDependencies": {
     "@angular/cli": "1.6.5",
