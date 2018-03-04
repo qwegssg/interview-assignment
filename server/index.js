@@ -16,7 +16,7 @@ const routes       = require('./routes')
 require('./config/passport')(passport);
 
 mongoose.Promise = bluebird
-mongoose.connect(configDB.mongo.url)
+mongoose.connect("mongodb://user:user@ds255308.mlab.com:55308/beaconcrystal")
 
 app.use(helmet())
 app.use(morgan('dev'))
@@ -31,8 +31,8 @@ app.use(passport.session())
 app.use(express.static(__dirname + '/../client/dist'))
 app.use('/', routes)
 
-app.listen(port, () => {
-  console.log(`The magic happens on http://localhost:${port}`);
+app.listen(1000, function() {
+  console.log(`The magic happens on http://localhost:${1000}`);
 })
 
 module.exports = app
