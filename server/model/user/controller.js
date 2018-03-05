@@ -1,6 +1,7 @@
 const Controller = require('../../lib/controller');
 const userFacade = require('./facade');
 const passport = require('passport');
+const User = require('./schema');
 
 
 class UserController extends Controller {
@@ -14,6 +15,20 @@ class UserController extends Controller {
   logout(req, res, next) {
     req.logout();
     res.redirect('/login');
+  }
+
+  // Signup
+  signUp(req, res, next) {
+    var newUser = new User({username: req.body.username});
+    User.register(newUser, req.body.password, function(err, user){
+      if(err){
+        console.log(err);
+        return res.render("register");
+      }
+      passport.authenticate("local")(req, res, function(){
+        res.redirect("/");
+      });
+    });
   }
 
   // Facebook

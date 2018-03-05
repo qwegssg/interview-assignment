@@ -22,8 +22,9 @@ router.route('/auth/session')
 router.route('/auth/logout')
   .get(isLoggedIn, controller.logout);
 
-router.route('/auth/register')
+router.route('/register')
   .get(isLoggedIn, controller.getSession)
+  .post(isLoggedIn, controller.signUp);
 
 // Facebook Routes
 router.route('/auth/facebook/login')
