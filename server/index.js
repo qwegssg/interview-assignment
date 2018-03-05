@@ -24,15 +24,20 @@ app.use(cookieParser())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
-app.use(session({ secret: 'somesecretmoresecretthanallsecrets' }))
+app.use(session({
+  secret: 'somesecretmoresecretthanallsecrets',
+  resave: 'false',
+  saveUninitialized: 'false'
+}))
+
 app.use(passport.initialize())
 app.use(passport.session())
 
 app.use(express.static(__dirname + '/../client/dist'))
 app.use('/', routes)
 
-app.listen(1000, function() {
-  console.log(`The magic happens on http://localhost:${1000}`);
+app.listen(process.env.PORT, process.env.IP, function() {
+  console.log(`The magic happens`);
 })
 
 module.exports = app

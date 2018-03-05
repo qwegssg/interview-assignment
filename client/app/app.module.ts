@@ -11,6 +11,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { AppService } from './services/app.service';
 import { LoginComponent } from './pages/login/login.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 const appRoutes: Routes = [
   {
@@ -25,6 +26,10 @@ const appRoutes: Routes = [
     path: 'profile',
     component: ProfileComponent
   },
+  {
+    path: 'register',
+    component: RegisterComponent
+  },
   { path: '**', component: NotFoundComponent }
 ];
 
@@ -34,7 +39,8 @@ const appRoutes: Routes = [
     HomeComponent,
     NotFoundComponent,
     LoginComponent,
-    ProfileComponent
+    ProfileComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
