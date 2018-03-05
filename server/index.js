@@ -36,7 +36,7 @@ app.use(passport.session())
 app.use(express.static(__dirname + '/../client/dist'))
 app.use('/', routes)
 
-app.listen(process.env.PORT, process.env.IP, function() {
+app.listen(port, process.env.IP, function() {
   console.log(`The magic happens`);
 })
 
